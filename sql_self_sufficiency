@@ -1,7 +1,8 @@
 1: Write a query that allows you to inspect the schema of the naep table.
 
-SELECT *
-FROM naep;
+SELECT column_name, data_type
+FROM information_schema.columns
+WHERE table_name = 'naep';
 
 2: Write a query that returns the first 50 records of the naep table.
 
@@ -51,7 +52,6 @@ avg_math_4_score,
 state as bottom_10_states
 FROM naep
 WHERE year = 2000
-GROUP BY(avg_math_4_score, state)
 ORDER BY(avg_math_4_score) 
 limit 10;
 
